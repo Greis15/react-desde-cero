@@ -1,17 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+//IMPORTAR EL COMPONENTE APP
 import App from './App';
-import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+const root = document.getElementById('root')
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+//SIN JSX
+//crear un elemento para poder renderizarlo e imprimir en pantalla: 3 parametros componente, propiedades,hijos
+// const elemento = React.createElement (componente , propiedades, hijos)
+
+// const elemento = React.createElement("h1", {className: "Saludo"}, "Hola mundo")
+
+
+//CON JSX
+//necesita un elemento y un lugar en el documento html donde quiero insertar
+// ReactDOM.render(<h1 className="saludos">Hola mundo</h1>, root );
+
+//RENDERIZAR EL COMPONENTE APP
+//todo componente tiene que tener etiqueta de apertura y cierre
+ReactDOM.render(<App />, root)
