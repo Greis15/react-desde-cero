@@ -1,29 +1,47 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+const mayorDeEdad = edad => edad > 18
 
-const Curso = () => (
+//objeto props 
+// const Curso = props => (
+const Curso = ({title, image,price,profesor}) => (
     <article className="card">
         <div className="img-container s-ratio-16-9 s-radius-tr s-radius-tl">
-            <img src="https://edteam-media.s3.amazonaws.com/courses/original/fbda9747-85b7-482e-8ffc-547b98031ca4.png" alt="" />
+            <img src={image} alt= {title} />
         </div>
         <div className="card__data s-border s-radius-br s-radius-bl s-pxy-2">
-            <h3 className="t5 s-mb-2 s-center">
-            Programación orientada a objetos con Go
-            </h3>
-            <div className="s-mb-2 s-main-center">
-            <div className="card__teacher s-cross-center">
-                <div className="card__avatar s-mr-1">
-                <div className="circle img-container">
-                    <img src="https://edteam-media.s3.amazonaws.com/users/thumbnail/78be1759-2624-4b20-b237-1bab3c934b2f.jpg" alt=""/>
-                </div>
-                </div>
-                <span className="small">Alexys Lozada</span>
-            </div>
+            {/* {
+                mayorDeEdad(persona.edad)
+                ?  <h3 className= "center">
+                        Hola soy mayor 
+                    </h3>
+                
+                : <p>Soy menor</p>
+            } */}
+            <h3 className="center">{title}</h3>
+            <div className="s-main-center">
+                {`Profesor:${profesor}`}
             </div>
             <div className="s-main-center">
-            <a className="button--ghost-alert button--tiny" href="#">$ 20USD</a>
+                <a className="button--ghost-alert button--tiny" href="#">{`Precio del curso: ${price} $`}</a>
             </div>
         </div>
     </article>
 )
+
+//De esta manera declaramos propiedades por defecto
+Curso.propTypes = {
+    title: PropTypes.string,
+    image: PropTypes.string,
+    price: PropTypes.number,
+    profesor: PropTypes.string
+}
+
+Curso.defaultProps = {
+    title:"No se encontro titulo",
+    image: "https://www.ngenespanol.com/wp-content/uploads/2018/08/Una-gran-ciudad-en-blanco-y-Negro.jpg",
+    price: "--",
+    profesor: "--"
+}
 
 export default Curso;
